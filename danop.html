@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DanaDanop</title>
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      width: 100%;
+      background-color: #000;
+      overflow: hidden;
+    }
+
+    #btnStart {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      padding: 1rem 2rem;
+      font-size: 1.2rem;
+      background: #00aaff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      z-index: 2;
+    }
+
+    .canva-embed-container {
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      display: none;
+      z-index: 1;
+    }
+
+    iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>
+</head>
+<body>
+
+  <button id="btnStart">Entrar</button>
+
+  <div class="canva-embed-container" id="canva">
+    <iframe 
+      src="https://www.canva.com/design/DAGragOdyms/aNdKJk6FkiguNp7CpdY13w/view?embed&hide_ui=true"
+      allowfullscreen allow="fullscreen">
+    </iframe>
+  </div>
+
+  <audio id="musica" loop>
+    <source src="final.mp3" type="audio/mpeg">
+    Tu navegador no soporta audio.
+  </audio>
+
+  <script>
+    const btn = document.getElementById('btnStart');
+    const canva = document.getElementById('canva');
+    const audio = document.getElementById('musica');
+
+    btn.addEventListener('click', () => {
+      btn.style.display = 'none';
+      canva.style.display = 'block';
+      audio.play().catch(err => {
+        console.error("No se pudo reproducir la música:", err);
+      });
+    });
+  </script>
+
+</body>
+</html>
+
+
+
+
+
